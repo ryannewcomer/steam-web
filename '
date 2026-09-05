@@ -1,0 +1,25 @@
+import requests
+import json
+
+valus = {
+    "include_appinfo": "1",
+    "include_played_free_game": "1",
+    "key": "CC2136761B91FAA0ABA6F3D253751226",
+    "steamid": "76561197960434622",
+    "format": "json",
+}
+r = requests.get(
+    "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001", params=valus
+)
+# print(r.url)
+datas = r.json()
+
+# convert the data into a pyton dict
+new_data_string = json.dumps(datas, indent=2)
+new_data = json.loads(new_data_string)
+print(new_data)
+
+real_game = []
+for games in range(len(new_data["response"]["games"])):
+    if new_data["response"]["games"][games]["playtime_forever"] > 0:
+        real_game.append(new_data["response"]["games"][games])
