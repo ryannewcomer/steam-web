@@ -15,7 +15,7 @@ from flask_cors import CORS
 from pysteamsignin.steamsignin import SteamSignIn
 import requests
 
-app = Flask(__name__, template_folder="../templates", static_folder="../static")
+app = Flask(__name__, template_folder="../CODE", static_folder="../static")
 app.secret_key = secrets.token_hex()
 CORS(app, supports_credentials=True)
 

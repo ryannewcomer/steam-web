@@ -28,7 +28,7 @@ body {
     box-shadow: 0 0 15px #494c99;
 }
 
-#main {
+.main {
     border-radius: 3px;
     background-color: #373853;
     box-shadow: 0 0 5px #00000083;
@@ -36,7 +36,7 @@ body {
     margin: 0 auto;
 }
 
-#username {
+.username {
     text-align: center;
     font-size: 24px;
 }

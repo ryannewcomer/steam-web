@@ -41,6 +41,7 @@ function populateName(obj) {
   const header = document.getElementById("username");
   console.log("name: " + obj);
   header.textContent = obj;
+  document.title = obj + " - Steam Web";
 }
 
 populate();
