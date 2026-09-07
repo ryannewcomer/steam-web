@@ -15,7 +15,7 @@ steamLogin = SteamSignIn()
 @app.route("/login")
 
 def login():
-    return steamLogin.RedirectUser(steamLogin.ConstructURL('https://127.0.0.1:5000/process_login'))
+    return steamLogin.RedirectUser(steamLogin.ConstructURL('https://steam-web.onrender.com/process_login'))
 
 @app.route("/process_login")
 def processLogin():
@@ -34,7 +34,7 @@ def get_games():
     valus = {
         "include_appinfo": "1",
         "include_played_free_game": "1",
-        "key": "CC2136761B91FAA0ABA6F3D253751226",
+        "key": "8BE54D4857972D66B2ACF48EBDA4F64C",
         "steamid": steam_id,
         "format": "json",
     }
