@@ -1,16 +1,21 @@
 img {
-    height:  40px;
+    height:  45px;
     width: 45px;
+}
+
+* {
+    color: white;
+    font-size: 20px;
 }
 
 body {
     background-color: #383b6d;
-    padding: 10px;
+    padding: 0;
 }
 
 .nav_bar {
     margin: 0;
     background-color: #2b2c49;
-    color: white;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
 }
