@@ -23,7 +23,12 @@ steamLogin = SteamSignIn()
 
 
 @app.route("/")
-def home():
+def landing():
+    return render_template("landing.html")
+
+
+@app.route("/main")
+def main():
     return render_template("index.html")
 
 
@@ -39,7 +44,7 @@ def processLogin():
     steam_id = steamLogin.ValidateResults(dict(request.args))
     if steam_id:
         session["steam_id"] = steam_id
-        return redirect(url_for("home"))
+        return redirect(url_for("main"))
     else:
         return jsonify({"message": "login filed"})
 
@@ -96,7 +101,7 @@ def names():
 
     player_name = []
     player_name.append(new_player.personaname)
-    return player_name
+    return json.dumps(player_name)
 
 
 # this return the array as a string of json
