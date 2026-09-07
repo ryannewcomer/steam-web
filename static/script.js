@@ -11,18 +11,20 @@ async function populate() {
   const gamesText = await response.text();
   const games = JSON.parse(gamesText);
 
+  // namse
+  const name_url = "/api/names";
+  const r = new Request(name_url);
+
+  const re = await fetch(r);
+  const nameText = await re.text();
+  const names = JSON.parse(nameText);
+
   populateGames(games);
+  populateName(names);
 }
 
 function populateGames(obj) {
   for (const gamesName of obj) {
-    // make 2 col, one for name, one for time
-    // might fix later cus i wanna make them col1 and col2,
-    // using i
-    //for (let i = 1; i <= 2; i++) {
-    // const i = document.createElement(div);
-    //i.className = "col";
-    //}
     const col1 = document.createElement("div");
     col1.className = "col";
     const col2 = document.createElement("div");
@@ -34,6 +36,11 @@ function populateGames(obj) {
     gameNameId.appendChild(col1);
     playTimeId.appendChild(col2);
   }
+}
+
+function populateName(obj) {
+  const header = document.getElementById("username");
+  header.textContent = obj;
 }
 
 populate();

@@ -9,7 +9,7 @@ from flask import (
     send_from_directory,
     redirect,
     url_for,
-    render_template
+    render_template,
 )
 from flask_cors import CORS
 from pysteamsignin.steamsignin import SteamSignIn
@@ -24,7 +24,7 @@ steamLogin = SteamSignIn()
 
 @app.route("/")
 def home():
-    return render_template('index.html') 
+    return render_template("index.html")
 
 
 @app.route("/login")
@@ -71,6 +71,32 @@ def get_games():
         real_game.append(new_data["response"]["games"][games])
 
     return json.dumps(real_game)
+
+
+@app.route("/api/names")
+def names():
+    steam_id = session.get("steam_id")
+    if not steam_id:
+        return jsonify({"message": "no steam id"}), 401
+
+    args = {
+        "key": "8BE54D4857972D66B2ACF48EBDA4F64C",
+        "steamid": steam_id,
+        "formate": "json",
+    }
+
+    p = requests.get(
+        "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002", params=args
+    )
+
+    player = p.json()
+
+    new_player_string = json.dumps(player, indent=2)
+    new_player = json.loads(new_player_string)
+
+    player_name = []
+    player_name.append(new_player.personaname)
+    return player_name
 
 
 # this return the array as a string of json
