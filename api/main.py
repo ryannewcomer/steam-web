@@ -86,7 +86,7 @@ def names():
 
     args = {
         "key": "8BE54D4857972D66B2ACF48EBDA4F64C",
-        "steamid": steam_id,
+        "steamids": steam_id,
         "formate": "json",
     }
 
@@ -99,12 +99,9 @@ def names():
     new_player_string = json.dumps(player, indent=2)
     new_player = json.loads(new_player_string)
 
-    player_name = []
-    player_name.append(new_player.personaname)
-    return json.dumps(player_name)
+    player_name =new_player["response"]["players"][0]["personname"]
+    return  jsonify({"name": player_name})
 
-
-# this return the array as a string of json
 
 if __name__ == "__main__":
     app.run(port=5000)
