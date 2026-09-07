@@ -1,6 +1,7 @@
 #steam_icon {
     height:  60px;
     width: 60px;
+    biox-shadow: 0 0 10px #00000096;
 }
 
 * {
