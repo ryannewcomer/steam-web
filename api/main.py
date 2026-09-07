@@ -1,4 +1,5 @@
 import json
+import os
 import secrets
 
 from flask import (
@@ -34,9 +35,8 @@ def main():
 
 @app.route("/login")
 def login():
-    return steamLogin.RedirectUser(
-        steamLogin.ConstructURL("https://steam-web.onrender.com/process_login")
-    )
+    base_url = os.environ.get("RENDER_URL", "http://127.0.0.1:5000")
+    return steamLogin.RedirectUser(steamLogin.ConstructURL(f"{base_url}/process_login"))
 
 
 @app.route("/process_login")
@@ -95,12 +95,12 @@ def names():
     )
 
     player = p.json()
-
+    print(player)
     new_player_string = json.dumps(player, indent=2)
     new_player = json.loads(new_player_string)
 
-    player_name =new_player["response"]["players"][0]["personname"]
-    return  jsonify({"name": player_name})
+    player_name = new_player["response"]["players"].personname
+    return jsonify({"name": player_name})
 
 
 if __name__ == "__main__":
