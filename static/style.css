@@ -1,6 +1,7 @@
 #steam_icon {
     height:  60px;
     width: 60px;
+    border-radius: 50%;
     box-shadow: 0 0 10px #00000096;
 }
 
@@ -12,7 +13,9 @@
 body {
     background-color: #383b6d;
     padding: 0;
-    box-shadow: 0 0 5px #232544;
+    box-shadow: inset 0 0 5px #232544;
+    border-color: #232544;
+    border-radius: 2px;
 }
 
 .nav_bar {
@@ -21,6 +24,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
     height: 80px;
+    box-shadow: 0 0 15px #494c99;
 }
 
 #main {
