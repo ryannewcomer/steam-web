@@ -1,20 +1,41 @@
 import requests
 import json
-from flask import Flask
+from flask import Flask, session, jsonify
 from flask_cors import CORS
+from pysteamsignin.steamsignin import SteamSignIn
+import secrets
 
 app = Flask(__name__)
-CORS(app)
+app.secret_key = secrets.token_hex()
+CORS(app, supports_credentials=True)
 
+steamLogin = SteamSignIn()
+
+
+@app.route("/login")
+
+def login():
+    return steamLogin.RedirectUser(steamLogin.ConstructURL('https://127.0.0.1:5000/process_login'))
+
+@app.route("/process_login")
+def processLogin():
+    steam_id = steamLogin.ValidateResults(dict(request.args))
+    if steam_id:
+        session['steam_id'] = steam_id
+        return jsonify({"message": "Login successful!", "steam_id": steam_id})
+    else:
+        return jsonify({"message": "login filed"})
 
 @app.route("/api/games")
 def get_games():
-
+    steam_id = session.get('steam_id')
+    if not steam_id:
+        return jsonify({"message": "no steam id"}), 401
     valus = {
         "include_appinfo": "1",
         "include_played_free_game": "1",
         "key": "CC2136761B91FAA0ABA6F3D253751226",
-        "steamid": "76561199143940092",
+        "steamid": steam_id,
         "format": "json",
     }
     r = requests.get(
