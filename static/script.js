@@ -9,7 +9,6 @@ async function populate() {
   const response = await fetch(reques);
   const gamesText = await response.text();
   const games = JSON.parse(gamesText);
-
   // namse
   const name_url = "/api/names";
   const r = new Request(name_url);
