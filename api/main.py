@@ -1,6 +1,6 @@
 import requests
 import json
-from flask import Flask, session, jsonify
+from flask import Flask, session, jsonify, request
 from flask_cors import CORS
 from pysteamsignin.steamsignin import SteamSignIn
 import secrets

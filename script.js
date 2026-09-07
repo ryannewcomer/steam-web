@@ -3,7 +3,7 @@ const gameNameId = document.getElementById("game-name");
 const playTimeId = document.getElementById("play-time");
 // use a loop to automaticly add rows and cal from json
 async function populate() {
-  const URL = "http://127.0.0.1:5000/api/games";
+  const URL = "http://steam-web.onrender.com/api/games";
   const reques = new Request(URL);
 
   const response = await fetch(reques);
