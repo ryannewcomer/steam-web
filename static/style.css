@@ -1,6 +1,6 @@
 #steam_icon {
-    height:  80px;
-    width: 80px;
+    height:  60px;
+    width: 60px;
 }
 
 * {
@@ -27,7 +27,7 @@ body {
     background-color: #373853;
     box-shadow: 0 0 5px #00000083;
     width: 900px;
-    margin: 0;
+    margin: 0 auto;
 }
 
 #username {
