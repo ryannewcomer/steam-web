@@ -16,6 +16,7 @@ body {
     box-shadow: inset 0 0 5px #232544;
     border-color: #232544;
     border-radius: 2px;
+    display: block;
 }
 
 .nav_bar {

@@ -1,7 +1,6 @@
 // select the main div tag
 const gameNameId = document.getElementById("game-name");
 const playTimeId = document.getElementById("play-time");
-const UsernameId = document.getElementById("username");
 // use a loop to automaticly add rows and cal from json
 async function populate() {
   const URL = "/api/games";
@@ -40,6 +39,7 @@ function populateGames(obj) {
 
 function populateName(obj) {
   const header = document.getElementById("username");
+  console.log("name: " + obj);
   header.textContent = obj;
 }
 
