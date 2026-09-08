@@ -9,7 +9,7 @@ async function populate() {
   const gamesText = await response.text();
   const games = JSON.parse(gamesText);
 
-  // namse
+  // names
   const name_url = "/api/names";
   const r = new Request(name_url);
 
@@ -62,7 +62,7 @@ function populateName(obj) {
   const header = document.querySelector(".username");
   header.textContent = obj.name;
   header.style.fontSize = "30px";
-  header.style.kerning = "2px";
+  header.style.letterSpacing = "3px";
   document.title = obj.name + " - Steam Web";
 }
 
