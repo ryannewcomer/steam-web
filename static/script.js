@@ -9,6 +9,11 @@ async function populate() {
   const gamesText = await response.text();
   const games = JSON.parse(gamesText);
 
+  if (response.status == 401) {
+    window.location.href = "https:/steam-web.onrender.com/login";
+    return;
+  }
+
   // names
   const name_url = "/api/names";
   const r = new Request(name_url);
@@ -63,6 +68,14 @@ function populateName(obj) {
   header.textContent = obj.name;
   header.style.fontSize = "30px";
   header.style.letterSpacing = "3px";
+
+  const hr = document.createElement("hr");
+  hr.color = "white";
+  hr.width = "400px";
+  hr.size = "2px";
+
+  header.appendChild(hr);
+
   document.title = obj.name + " - Steam Web";
 }
 
