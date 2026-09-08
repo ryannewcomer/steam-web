@@ -39,7 +39,8 @@ function populateGames(obj) {
     textBox.style.margin = "0";
     textBox.style.backgroundColor = "rgba(33, 48, 131, 0.36)";
     textBox.style.padding = "5px";
-    cell.style.fontFamily = "Arial, sans-serif";
+    textBox.style.fontFamily = "Arial, sans-serif";
+    textBox.style.alignItems = "end";
 
     const game = document.createElement("h3");
     const time = document.createElement("p");
