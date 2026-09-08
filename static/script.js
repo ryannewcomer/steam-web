@@ -32,7 +32,7 @@ function populateGames(obj) {
     cell.style.borderRadius = "3px";
     cell.style.margin = "5px";
     cell.style.boxShadow = "5px #00000049";
-    cell.style.alignItems = "end";
+    cell.style.alignContent = "end";
     
     const textBox = document.createElement("div");
 
@@ -40,7 +40,6 @@ function populateGames(obj) {
     textBox.style.backgroundColor = "rgba(33, 48, 131, 0.36)";
     textBox.style.padding = "5px";
     textBox.style.fontFamily = "Arial, sans-serif";
-    textBox.style.alignContent = "end";
 
     const game = document.createElement("h3");
     const time = document.createElement("p");
