@@ -10,7 +10,7 @@ async function populate() {
   const games = JSON.parse(gamesText);
 
   if (response.status == 401) {
-    window.location.href = "https:/steam-web.onrender.com/login";
+    window.location.href = "https://steam-web.onrender.com/login";
     return;
   }
 
