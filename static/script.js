@@ -40,7 +40,7 @@ function populateGames(obj) {
     textBox.style.backgroundColor = "rgba(33, 48, 131, 0.36)";
     textBox.style.padding = "5px";
     textBox.style.fontFamily = "Arial, sans-serif";
-    textBox.style.alignItems = "end";
+    textBox.style.alignContent = "end";
 
     const game = document.createElement("h3");
     const time = document.createElement("p");
