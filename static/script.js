@@ -26,21 +26,33 @@ function populateGames(obj) {
     const cell = document.createElement("div");
     cell.className = "cell";
 
-    cell.style.width = "100px";
-    cell.style.height = "80px";
-    cell.style.backgroundColor = "#c7c8dd";
+    cell.style.width = "200px";
+    cell.style.height = "200px";
+    cell.style.backgroundColor = "#313461";
     cell.style.borderRadius = "3px";
     cell.style.margin = "5px";
     cell.style.boxShadow = "5px #00000049";
+    cell.style.alignItems = "end";
+    
+    const textBox = document.createElement("div");
+
+    textBox.style.margin = "0";
+    textBox.style.backgroundColor = "rgba(33, 48, 131, 0.36)";
+    textBox.style.padding = "5px";
+    cell.style.fontFamily = "Arial, sans-serif";
 
     const game = document.createElement("h3");
     const time = document.createElement("p");
 
     game.textContent = gamesName.name;
-    time.textContent = Math.round(gamesName.playtime_forever / 60) + ":" + (gamesName.playtime_forever % 60).toString().padStart(2, "0") + " hrs";
+    time.textContent = Math.round(gamesName.playtime_forever / 60) + " hrs";
+    if (gamesName.playtime_forever % 60 !== 0) {
+      time.textContent += " " + (gamesName.playtime_forever % 60) + " mins";
+    }
+    textBox.appendChild(game);
+    textBox.appendChild(time);
 
-    cell.appendChild(game);
-    cell.appendChild(time);
+    cell.appendChild(textBox);
 
     main.appendChild(cell);
   }
