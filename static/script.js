@@ -38,7 +38,7 @@ function populateGames(obj) {
 }
 
 function populateName(obj) {
-  const header = document.getElementById("username");
+  const header = document.querySelector(".username");
   header.textContent = obj.name;
 }
 

@@ -1,5 +1,4 @@
 import json
-import os
 import secrets
 
 from flask import (
@@ -7,7 +6,6 @@ from flask import (
     jsonify,
     request,
     session,
-    send_from_directory,
     redirect,
     url_for,
     render_template,
@@ -35,8 +33,7 @@ def main():
 
 @app.route("/login")
 def login():
-    base_url = os.environ.get("RENDER_URL", "http://127.0.0.1:5000")
-    return steamLogin.RedirectUser(steamLogin.ConstructURL(f"{base_url}/process_login"))
+    return steamLogin.RedirectUser(steamLogin.ConstructURL("https://steam-web.onrender.com/process_login"))
 
 
 @app.route("/process_login")
@@ -87,20 +84,24 @@ def names():
     args = {
         "key": "8BE54D4857972D66B2ACF48EBDA4F64C",
         "steamids": steam_id,
-        "formate": "json",
+        "format": "json",
     }
-
     p = requests.get(
-        "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002", params=args
-    )
+        "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002", params=args)
 
     player = p.json()
-    print(player)
     new_player_string = json.dumps(player, indent=2)
     new_player = json.loads(new_player_string)
 
-    player_name = new_player["response"]["players"].personname
-    return jsonify({"name": player_name})
+
+
+    players = new_player["response"]["players"]
+
+    player_name = players[0]
+
+
+    real_player_name = player_name["personaname"] 
+    return jsonify({"name": real_player_name}) 
 
 
 if __name__ == "__main__":
