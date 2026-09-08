@@ -41,6 +41,8 @@ function populateGames(obj) {
 
     cell.appendChild(game);
     cell.appendChild(time);
+
+    main.appendChild(cell);
   }
 }
 
