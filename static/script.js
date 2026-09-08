@@ -62,6 +62,8 @@ function populateGames(obj) {
 function populateName(obj) {
   const header = document.querySelector(".username");
   header.textContent = obj.name;
+  header.style.fontSize = "30px";
+  header.style.kerning = "2px";
   document.title = obj.name + " - Steam Web";
 }
 
