@@ -33,11 +33,14 @@ function populateGames(obj) {
     cell.style.margin = "5px";
     cell.style.boxShadow = "5px #00000049";
 
-    col1.textContent = gamesName.name;
-    col2.textContent = Math.round(gamesName.playtime_forever / 60);
+    const game = document.createElement("h3");
+    const time = document.createElement("p");
 
-    cell.appendChild(col1);
-    cell.appendChild(col2);
+    game.textContent = gamesName.name;
+    time.textContent = Math.round(gamesName.playtime_forever / 60) + ":" + (gamesName.playtime_forever % 60).toString().padStart(2, "0") + " hrs";
+
+    cell.appendChild(game);
+    cell.appendChild(time);
   }
 }
 
