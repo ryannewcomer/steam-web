@@ -37,13 +37,10 @@ function populateGames(obj) {
 
     cell.style.width = "200px";
     cell.style.height = "200px";
-<<<<<<< HEAD
     cell.style.backgroundImage = `url(https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${url}.jpg)`;
-    cell.style.backgroundSize = "cover";  
-=======
+    cell.style.backgroundSize = "cover";
     cell.style.backgroundImage = `url(https://cdn.akamai.steamstatic.com/steam/apps/${appId}/header.jpg)`;
     cell.style.backgroundSize = "cover";
->>>>>>> a33a3e2086134dec78226287ef1b727748f18b12
     cell.style.backgroundRepeat = "no-repeat";
     cell.style.borderRadius = "3px";
     cell.style.backgroundPosition = "centre";
