@@ -39,7 +39,7 @@ function populateGames(obj) {
     cell.style.width = "200px";
     cell.style.height = "200px";
     cell.style.backgroundImage = `url(https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${url}.jpg)`;
-    cell.style.backgroundSize = "auto";
+    cell.style.backgroundSize = "cover";
     cell.style.backgroundRepeat = "no-repeat";
     cell.style.borderRadius = "3px";
     cell.style.margin = "5px";
