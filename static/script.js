@@ -41,6 +41,7 @@ function populateGames(obj) {
     cell.style.backgroundSize = "cover";
     cell.style.backgroundRepeat = "no-repeat";
     cell.style.borderRadius = "3px";
+    cell.style.backgroundPosition = "centre";
     cell.style.margin = "5px";
     cell.style.boxShadow = "5px #00000049";
     cell.style.alignContent = "end";
