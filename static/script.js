@@ -29,7 +29,6 @@ async function populate() {
 function populateGames(obj) {
   for (const gamesName of obj) {
     // icon
-    const url = gamesName.img_icon_url;
     const appId = gamesName.appid;
 
     // cell
@@ -38,8 +37,8 @@ function populateGames(obj) {
 
     cell.style.width = "200px";
     cell.style.height = "200px";
-    cell.style.backgroundImage = `url(https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${url}.jpg)`;
-    cell.style.backgroundSize = "cover";  
+    cell.style.backgroundImage = `url(https://cdn.akamai.steamstatic.com/steam/apps/${appId}/header.jpg)`;
+    cell.style.backgroundSize = "cover";
     cell.style.backgroundRepeat = "no-repeat";
     cell.style.borderRadius = "3px";
     cell.style.margin = "5px";
