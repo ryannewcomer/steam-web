@@ -22,12 +22,17 @@ async function populate() {
 
 function populateGames(obj) {
   for (const gamesName of obj) {
+    // icon
+    const url = gamesName.img_icon_url;
+    const appId = gamesName.appid;
+
+    // cell
     const cell = document.createElement("div");
     cell.className = "cell";
 
     cell.style.width = "200px";
     cell.style.height = "200px";
-    cell.style.backgroundCoor = "#313461";
+    cell.style.backgroundImage = `url(https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${url}.jpg)`;
     cell.style.borderRadius = "3px";
     cell.style.margin = "5px";
     cell.style.boxShadow = "5px #00000049";
@@ -48,19 +53,9 @@ function populateGames(obj) {
     if (gamesName.playtime_forever % 60 !== 0) {
       time.textContent += " " + (gamesName.playtime_forever % 60) + " mins";
     }
-    // icon
-    const icon = document.createElement("div");
-    icon.className = "icon";
-    const url = gamesName.img_icon_url;
-    const appId = gamesName.appid;
-    icon.setAttribute(
-      "src",
-      `https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${url}.jpg`,
-    );
 
     textBox.appendChild(game);
     textBox.appendChild(time);
-    textBox.appendChild(icon);
 
     cell.appendChild(textBox);
 
