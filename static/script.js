@@ -3,9 +3,15 @@ const main = document.getElementById("main");
 // use a loop to automaticly add rows and cal from json
 async function populate() {
   const URL = "/api/games";
-  const reques = new Request(URL);
+  const request = new Request(URL);
 
-  const response = await fetch(reques);
+  const response = await fetch(request);
+
+  if (response.status == 401) {
+    window.location.href = "/login";
+    return;
+  }
+
   const gamesText = await response.text();
   const games = JSON.parse(gamesText);
   // names
@@ -33,6 +39,8 @@ function populateGames(obj) {
     cell.style.width = "200px";
     cell.style.height = "200px";
     cell.style.backgroundImage = `url(https://media.steampowered.com/steamcommunity/public/images/apps/${appId}/${url}.jpg)`;
+    cell.style.backgroundSize = "auto";
+    cell.style.backgroundRepeat = "no-repeat";
     cell.style.borderRadius = "3px";
     cell.style.margin = "5px";
     cell.style.boxShadow = "5px #00000049";
